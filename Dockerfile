@@ -3,8 +3,8 @@ FROM node:alpine
 RUN npm install -g tiddlywiki@5.2.7
 
 # Setup wiki volume
-VOLUME /var/lib/tiddlywiki
-WORKDIR /var/lib/tiddlywiki
+VOLUME /data
+WORKDIR /data
 
 # Add init-and-run script
 ADD init-and-run-wiki /usr/local/bin/init-and-run-wiki
