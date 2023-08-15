@@ -10,6 +10,11 @@ if [ -n "$NODE_MEM" ]; then
     NODEJS_V8_ARGS="--max_old_space_size=$mem_node_old_space $NODEJS_V8_ARGS"
 fi
 
+if [ -z "$(ls -A /data)" ]; then
+  /usr/bin/env node $NODEJS_V8_ARGS $tiddlywiki_script /data --init server
+  mkdir /data/tiddlers
+fi
+
 
 # Define plugins, see https://tiddlywiki.com/static/Using%2520TiddlyWiki%2520on%2520Node.js.html
 if [  -n "$PLUGINS" ]; then
